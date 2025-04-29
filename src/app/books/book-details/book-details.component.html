@@ -1,0 +1,15 @@
+<h1>Detalle del libro</h1>
+<div class="card">
+    <h5 class="card-header">{{book.title}}</h5>
+    <div class="card-body">
+      <h5 class="card-subtitle">{{book.description}}</h5>
+      <p class="mb-2"><span class="fw-bolde">Cantidad de Paginas:</span> {{book.pageCount}}</p>
+      <p class="card-text">{{book.excerpt}}</p>
+      <p><span class="fst-italic float-end text-muted">Fecha de Publicacion: {{book.publishDate | date: 'shortDate'}}</span></p>
+    </div>
+    @if (author) {
+      <div class="card-footer text-body-secondary">
+        <p>Autor: {{ author.firstName }} {{ author.lastName }}</p>
+      </div>
+    }
+  </div>

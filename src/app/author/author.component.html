@@ -1,0 +1,32 @@
+<h1 class="mb-5">Lista de Autores</h1>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Numero de libros publicados</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(author of authors; track author){
+                <tr>
+                    <td>{{author.firstName}}</td>
+                    <td>{{author.lastName}}</td>
+                    <td>
+                        <button type="button" (click)="goToDetail(author.id)" class="btn btn-detalles rounded-pill ">
+                            Ver detalles
+                        </button>
+                        <button type="button" class="btn btn-detalles rounded-pill ms-3 ">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button type="button" class="btn btn-detalles rounded-pill ms-3">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+          
+        </tbody>
+    </table>
+</div>

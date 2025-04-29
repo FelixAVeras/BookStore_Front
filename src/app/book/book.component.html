@@ -1,0 +1,38 @@
+<h1 class="mb-5">Lista de libros</h1>
+<div class="row mb-4">
+    <div class="col-12 col-md-12 col-lg-12">
+        <a routerLink="/authors" class="btn btn-dark float-end">Ver Autores</a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(book of books; track book){
+                <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.description}}</td>
+                    <td>
+                        <button type="button" (click)="goToDetail(book.id)" class="btn btn-detalles rounded-pill ">
+                            Ver detalles
+                        </button>
+                        <button type="button" class="btn btn-detalles rounded-pill ms-3 ">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button type="button" class="btn btn-detalles rounded-pill ms-3">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+          
+        </tbody>
+    </table>
+</div>
