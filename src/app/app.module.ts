@@ -15,7 +15,8 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
     BookComponent,
     AuthorComponent,
     NavbarComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,

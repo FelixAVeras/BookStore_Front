@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class BookComponent implements OnInit {
   books: Book[] = [];
-
   constructor(private backendService: BackendService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,4 +30,30 @@ export class BookComponent implements OnInit {
   goToDetail(id: number) {
     this.router.navigate(['/books', id]);
   }
+   // Agregar
+   addBook() {
+    const newBook ;
+    this.backendService.createBook(newBook).subscribe({
+      next: (result) => console.log('Libro creado:', result),
+      error: (err) => console.error(err)
+    });
+  }
+
+  // Editar
+  editBook() {
+    const updatedBook: Book = { id: 1, title: 'Libro actualizado', author: 'Autor actualizado', publishedDate: '2025-04-29' };
+    this.backendService.updateBook(1, updatedBook).subscribe({
+      next: () => console.log('Libro actualizado'),
+      error: (err) => console.error(err)
+    });
+  }
+
+  // Eliminar
+  deleteBook() {
+    this.backendService.deleteBook(1).subscribe({
+      next: () => console.log('Libro eliminado'),
+      error: (err) => console.error(err)
+    });
+  }
+
 }
